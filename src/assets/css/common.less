@@ -1,0 +1,271 @@
+.ant-layout-header{
+  padding: 0 0 0 15px;
+}
+.loginWrapper{
+  img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+  }
+  .loginBox{
+    width: 350px;
+    height: 420px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    z-index: 10;
+    margin-top: -220px;
+    margin-left: -180px;
+    box-shadow: 2px 3px 19px 0 rgba(182, 106, 0, 0.49);
+    border-radius: 4px;
+    background: #fff;
+    .title{
+      text-align: center;
+      line-height: 80px;
+      font-size: 26px;
+    }
+    .formWrapper{
+      width: 86%;
+      height: 300px;
+      margin: 0 auto;
+      .login-form-button{
+        width: 100%;
+        height: 36px;
+      }
+      input{
+        height: 36px;
+      }
+      .loginCheck{
+        width: 170px;
+      }
+    }
+    .verificationCode{
+      height: 35px;
+      width: 120px;
+      margin-left: 10px;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+  }
+}
+.adminWrapper{
+  height: 100%;
+}
+.siderWrapper{
+  color: #ffffff;
+  background-color: rgb(252, 245, 222);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  .sideHeader{
+    position: fixed;
+    z-index: 100;
+    // width: 200px;
+    padding: 7px 11px;
+    background: #FF9500;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    img{
+      width: 45px;
+      border-radius: 50%;
+    }
+    span{
+      margin-left: 15px;
+      line-height: 47px;
+      font-size: 20px;
+    }
+  }
+  .siderMenu{
+    margin-top: 60px;
+  }
+  .ant-menu{
+    background-color: rgb(252, 245, 222);
+  }
+  .ant-menu-inline .ant-menu-item{
+    margin-top: 0;
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background: #FF9500;
+    color: #ffffff;
+  }
+  .ant-menu-inline > .ant-menu-item{
+    height: 45px;
+    line-height: 45px;
+  }
+  .ant-menu-item-selected > a{
+    color: #ffffff;
+  }
+  .icon-font{
+    float: left;
+    margin-right: 3px;
+    font-size: 17px;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    text-align: left;
+    line-height: 23px;
+    margin-top: 9.5px;
+    font-weight: 300;
+  }
+
+
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: none;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: none;
+}
+.headerWrapper{
+  // height: 60px;
+  // line-height: 60px;
+  // box-shadow: 0 3px 4px 0 rgba(255,149,0, 0.20);
+  // display: flex;
+  // justify-content: flex-end;
+  // position: fixed;
+  // z-index: 1000;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // margin-left: 200px;
+  // position: relative;
+  padding-right: 40px;
+  background: #fff;
+  .icon-logout{
+    font-size: 26px;
+    cursor: pointer;
+  }
+  .icon-logout:hover{
+    color: #FF9500;
+    transition-duration: 0.3s
+  }
+  .userInfo {
+    padding: 10px 15px;
+    line-height: 15px;
+    margin-top: 5px;
+  }
+  .useName, .loginTime {
+    font-size: 13px;
+    padding-bottom: 1px;
+  }
+  .trigger {
+    font-size: 18px;
+    line-height: 70px;
+    // padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+  }
+  .trigger:hover {
+    color: #1890ff;
+  }
+  .headMenu{
+    // position: relative;
+    margin-left: 30px;
+    float: left;
+    line-height: 64px;
+  }
+  .name{
+    float: right;
+    // position: absolute;
+  }
+}
+.contentWrapper{
+  margin: 73px 10px 10px;
+  .ant-table-tbody > tr > td {
+   padding: 10px;
+    vertical-align: middle;
+  }
+  .centerDiv{
+    height: 50px;
+    margin-top: 5px;
+    display: flex;
+    line-height: 35px;
+  }
+  .centerDiv p{
+    width: 70px;
+  }
+
+
+}
+.dealerDetail{
+  line-height: 30px;
+}
+.dealerDetail span:first-child{
+  display: inline-block;
+  font-weight: bold;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content {
+  margin-top: -16px;
+}
+.card-container > .ant-tabs-card > .ant-tabs-bar {
+  border-color: #FF9500;
+}
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  border-color: transparent;
+  background: transparent;
+}
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  border-color: #FF9500;
+  color: #FF9500;
+}
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+  background: #FF9500;
+  color: #ffffff;
+}
+
+.ant-table-thead > tr > th{
+  background: #FF9500;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 0!important;
+}
+.reservationDetail{
+  background: #fef8d7;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+.reservationDetail p{
+  min-height: 50px;
+  line-height: 20px;
+}
+.couponSort{
+  padding: 0px 10px;
+  width: 500px;
+  border: 1px solid #FF9500;
+  border-radius: 3px;
+}
+.wrapperSetting{
+  width: 80%;
+  max-width: 1000px;
+  text-align: center;
+  border: 1px solid #ffeed7;
+  .settingHeader{
+    background: #FF9500;
+    color: #ffffff;
+  }
+}
+
+
+
+
+
+
