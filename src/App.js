@@ -8,7 +8,7 @@ import Admin from './pages/admin/Admin';
 class App extends Component{
     render() {
         const {userData} = this.props;
-        console.log(this.props.userData.Authorization)
+        // console.log(this.props.userData.Authorization)
         return (
             <HashRouter>
                 <Switch>

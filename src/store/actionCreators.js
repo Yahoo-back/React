@@ -49,7 +49,7 @@ export const getMenuAction=(params)=>{
 										var m = JSON.stringify(menuTree)
 										// console.log(m)
 										let menuList = JSON.parse(m);
-										console.log(menuList)
+										// console.log(menuList)
                 dispatch({
                     type:contants.INIT_MENU,
                     menuList

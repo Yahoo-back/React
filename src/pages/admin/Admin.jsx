@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {getMenuAction} from "../../store/actionCreators";
 import {logout} from '../../api';
 
+import ProductList from '../product/ProductList';
 import BannerRouter from '../banner/Router';
 import BillList from '../bill/BillList';
 import DishesCategory from '../dishes/DishesCategory';
@@ -38,16 +39,19 @@ const { confirm } = Modal;
 // }
 class Admin extends Component{
 	state = {
-    collapsed: false,
+		collapsed: false,
+		title: "后台管理系统",
+		title1: ''
   };
   toggle = () => {
     this.setState({
-      collapsed: !this.state.collapsed,
+			collapsed: !this.state.collapsed,
+			// title: ''
     });
 	};
 	getHeadMenu=()=>{
 		const menuList =this.props.menuList;
-		console.log(menuList)
+		// console.log(menuList)
 		return menuList.map((item)=>{
 			if(item.parentMuenId == 0 && item.muenid != 41){
 				return (
@@ -63,6 +67,9 @@ class Admin extends Component{
 			)
 			}
 		})
+	}
+	getTitle=()=>{
+
 	}
 	getMenuNodes=()=>{
 		const menuList =this.props.menuList;
@@ -155,17 +162,31 @@ class Admin extends Component{
             </a>
         </Menu.Item>
       </Menu>
-    );
+		);
+		const title = (
+		  <div className='sideHeader'>
+				<span>后台管理系统</span>
+			</div> 
+		);
+		const title1 = (
+		  // <div className='sideHeader'>
+				<img className="logo" src={require('../../assets/images/logo.png')}/>
+			// </div>
+		);
 		const {userData}=this.props
 		let path = this.props.history.location.pathname;
 		const userName = sessionStorage.getItem('userName')
     return (
       <Layout className='adminWrapper' >
 				<Sider className='siderWrapper' trigger={null} collapsible collapsed={this.state.collapsed}>
+					{/* <div className='sideHeader'>
+						<span>后台管理系统</span>
+					</div> */}
         {/* <div className='sideHeader'>
         <img src={userData.logo?userData.logo:require('../../assets/images/logo.png')} alt='' />
         <span>言川点餐</span>
         </div> */}
+					<span>{this.state.collapsed ? title1 : title}</span>
           <Menu
             className='siderMenu'
             selectedKeys={[path]}
@@ -202,6 +223,7 @@ class Admin extends Component{
             <Switch>
               {/* <Redirect exact={true} from='/' to='/personalCenter' />
               <Route path="/" component={PersonalCenter} exact /> */}
+							<Route path="/product/list" component={ProductList}/>
               <Route path="/billList" component={BillList} />
               <Route path="/bannerList" component={BannerRouter} />
               <Route path="/personalCenter" component={CenterRouter} />

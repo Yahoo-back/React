@@ -57,7 +57,7 @@ class LeftNav extends Component{
 
     render() {
         const {userData}=this.props
-        console.log(userData)
+        // console.log(userData)
         let path = this.props.history.location.pathname;
         // if(path.indexOf('/personalCenter')===0||path==='/'){
         //     path='/personalCenter'

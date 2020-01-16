@@ -1,6 +1,9 @@
 .ant-layout-header{
   padding: 0 0 0 15px;
 }
+.ant-form{
+  margin-top: 10%;;
+}
 .loginWrapper{
   img{
     width: 100%;
@@ -8,9 +11,12 @@
     position: absolute;
 
   }
+  .ant-form-item-with-help{
+    margin-bottom: 0;
+  }
   .loginBox{
     width: 350px;
-    height: 420px;
+    height: 380px;
     position: absolute;
     top:50%;
     left: 50%;
@@ -19,11 +25,12 @@
     margin-left: -180px;
     box-shadow: 2px 3px 19px 0 rgba(182, 106, 0, 0.49);
     border-radius: 4px;
-    background: #fff;
+    // background: #fff;
     .title{
       text-align: center;
       line-height: 80px;
       font-size: 26px;
+      color: #fff;
     }
     .formWrapper{
       width: 86%;
@@ -31,10 +38,43 @@
       margin: 0 auto;
       .login-form-button{
         width: 100%;
-        height: 36px;
+        height: 45px;
+        margin-top: 25px;
+        background: transparent;
+        color: #fff;
+        font-size: 18px;
+      }
+      .login-form-button:hover{
+        width: 100%;
+        height: 45px;
+        margin-top: 25px;
+        background: #fff;
+        color: #000;
+        font-size: 18px;
       }
       input{
-        height: 36px;
+        height: 45px;
+        background: transparent;
+        color: #fff;
+        line-height: 45px;
+        font-size: 16px;
+      }
+      input:focus{
+        outline:none;
+        border-color:#fff;
+        -moz-box-shadow:0 0 5px #FFDB01;
+        -webkit-box-shadow:0 0 5px #fff;
+        box-shadow:0 0 5px #fff;
+      }
+      input:hover{
+        outline:none;
+        border-color:#fff;
+        -moz-box-shadow:0 0 5px #FFDB01;
+        -webkit-box-shadow:0 0 5px #fff;
+        box-shadow:0 0 5px #fff;
+      }
+      .passInput{
+        margin-top: 15px;
       }
       .loginCheck{
         width: 170px;
@@ -54,7 +94,8 @@
 }
 .siderWrapper{
   color: #ffffff;
-  background-color: rgb(252, 245, 222);
+  // background-color: rgb(252, 245, 222);
+  background-color: #000;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -62,27 +103,37 @@
   .sideHeader{
     position: fixed;
     z-index: 100;
-    // width: 200px;
-    padding: 7px 11px;
-    background: #FF9500;
+    width: 200px;
+    padding: 7px 0px;
+    // background: #FF9500;
     height: 60px;
     display: flex;
+    justify-content: center;
     align-items: center;
     img{
       width: 45px;
       border-radius: 50%;
     }
     span{
-      margin-left: 15px;
       line-height: 47px;
       font-size: 20px;
     }
+  }
+  .logo{
+    position: fixed;
+    width: 42px;
+    height: 42px;
+    margin-top: 10px;
+    margin-left: 19px;
+    border-radius: 50%;
   }
   .siderMenu{
     margin-top: 60px;
   }
   .ant-menu{
-    background-color: rgb(252, 245, 222);
+    // background-color: rgb(252, 245, 222);
+    background-color: #000;
+    color: #fff;
   }
   .ant-menu-inline .ant-menu-item{
     margin-top: 0;
@@ -94,6 +145,9 @@
   .ant-menu-inline > .ant-menu-item{
     height: 45px;
     line-height: 45px;
+  }
+  .ant-menu-item > a{
+    color: #fff;
   }
   .ant-menu-item-selected > a{
     color: #ffffff;
@@ -188,7 +242,7 @@
   }
 }
 .contentWrapper{
-  margin: 73px 10px 10px;
+  margin: 30px 15px 10px;
   .ant-table-tbody > tr > td {
    padding: 10px;
     vertical-align: middle;
@@ -233,8 +287,8 @@
 }
 
 .ant-table-thead > tr > th{
-  background: #FF9500;
-  color: #ffffff;
+  // background: #FF9500;
+  // color: #ffffff;
   padding: 10px;
   border-radius: 0!important;
 }
@@ -264,8 +318,19 @@
   }
 }
 
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left{
+  border: none;
+}
 
-
+.searchOne{
+  float: left;
+  margin-top: 10px;
+}
+.search{
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
 
 
 

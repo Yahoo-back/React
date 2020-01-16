@@ -1,9 +1,5 @@
 import {post,get} from './ajax';
 
-
-// OSS上传签名获取
-export const uploadPassCode = param => post('bag/oss/account', param);
-
 //1.登录相关
 // export const getVerificationCode = param => post('/ums/user/verificationPictureCode', param, 'blob');
 export const login = param => post('/admin/login', param);
@@ -13,6 +9,17 @@ export const logout = param => post('/admin/logout', param);
 
 //2.初始化左侧菜单列表
 export const initMenu = param => get('/admin/permission/'+ sessionStorage.getItem('userId'), param);
+
+//商品列表
+export const productList = param => get('/product/qryProductList?' +'pageSize='+param.pageSize+'&pageNum='+param.pageNum+'&name_cnd='+param.name_cnd+'&is_hot_cnd='
++param.is_hot_cnd+'&classify_cnd='+param.classify_cnd+'&position_cnd='
++param.position_cnd+'&status_cnd='+param.status_cnd+'&create_time_FROM_cnd='+param.create_time_FROM_cnd+'&create_time_TO_cnd='+param.create_time_TO_cnd, param);
+
+//商品分类
+export const classify = param => get('/product/qryProductClassifyAll', param);
+
+// OSS上传签名获取
+export const uploadPassCode = param => post('bag/oss/account', param);
 
 //3. 菜品统计分类 增删改查
 export const dishesCategoryList = param => post('restaurant/foodTopGroup/list', param);

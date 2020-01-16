@@ -67,7 +67,7 @@ axiosIns.interceptors.request.use(config => {
         config.headers['Authorization'] = null;
     }
     if(window.location.pathname == '/login'){
-        config.headers['Authorization'] = null;
+        // config.headers['Authorization'] = null;
     }
     else{
         config.headers['Authorization'] = Authorization;
@@ -87,6 +87,7 @@ axiosIns.interceptors.request.use(config => {
 });
 
 axiosIns.interceptors.response.use(res => {
+    // console.log(res)
     const status = res.headers.businessstatus, msg = res.headers.message;
     if (res.data && (status < 200 || status > 299) && Number(status)!==666) {
         message.error(decodeURIComponent(msg));
@@ -103,7 +104,11 @@ axiosIns.interceptors.response.use(res => {
     }
     return res;
 }, error => {
-        message.error('网络走丢了');
+    setTimeout(()=>{
+        message.error('登录时间已过期请退出重新登录！');
+        router.history.push('/login')
+    }, 1000);
+    // message.error('网络走丢了');
     return Promise.reject('error.response.data.error')
 });
 

@@ -5,6 +5,7 @@ import * as contants from '../../store/actionTypes';
 import md5 from 'js-md5';
 import {getVerificationCode,login} from '../../api';
 import { formatDate} from "../../config/common";
+import Particles from 'reactparticles.js'
 
 class Login extends Component{
     constructor(props){
@@ -20,10 +21,11 @@ class Login extends Component{
             labelCol: { span: 5 }
         };
         return (
+					<div>
             <div className="loginWrapper">
                 <img src={require('../../assets/images/login.png')} alt='' />
                 <div className="loginBox">
-                    <h1 className='title'>欢迎登录</h1>
+                    <h1 className='title'>后台管理系统</h1>
                     <div className='formWrapper'>
                         <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
                             <Form.Item>
@@ -34,7 +36,7 @@ class Login extends Component{
                                         ],
                                 })(
                                     <Input
-                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        prefix={<Icon type="user" style={{ color: '#fff' }} />}
                                         placeholder="用户名"
                                     />
                                 )}
@@ -44,26 +46,31 @@ class Login extends Component{
                                     rules: [{ required: true, message: '请输入用户密码!' }],
                                 })(
                                     <Input
-                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        prefix={<Icon type="lock" style={{ color: '#fff' }} />}
                                         type="password"
-                                        placeholder="密码"
+																				placeholder="密码"
+																				className="passInput"
                                     />
                                 )}
 
                             </Form.Item>
-                            <Button type="primary" htmlType="submit" className="login-form-button">
+                            <Button htmlType="submit" className="login-form-button">
                                 登录
                             </Button>
                         </Form>
                     </div>
                 </div>
+
             </div>
+						<Particles id="particles" config="particles.json"/>
+
+						</div>
         )
     }
 
     componentDidMount() {
         const token = sessionStorage.getItem('token')
-        console.log(token)
+        // console.log(token)
     }
 
     handleSubmit = e=>{
@@ -94,7 +101,7 @@ class Login extends Component{
                         }
                         sessionStorage.setItem('userData',userData)
                         this.props.loginAction(userData,()=>{
-                            this.props.history.push('/')
+                            this.props.history.push('/product/list')
                         })
 
                     }else{
