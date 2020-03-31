@@ -3,16 +3,11 @@ import {Breadcrumb, Button, Card, Table, DatePicker, message, Input, Row, Col, S
 import {billPlatformList,billSystemList} from '../../api';
 import {productList,classify} from '../../api'
 import moment from 'moment';
-// import { DateAPI } from "../../config/format";
-import DateAPI from '../../config/format'
-const { MonthPicker } = DatePicker;
 // 定义你需要的时间格式
 const monthFormat = 'YYYY-MM';
 const { Search } = Input;
 const { RangePicker } = DatePicker;
 const {Option} = Select;
-// 获取前一个月的时间
-const beforeMonth = moment().subtract('1','month').format(monthFormat);
 
 
 class ProductList extends Component{
@@ -20,7 +15,6 @@ class ProductList extends Component{
     list:[],//标签列表
     classify: [],
     loading:false,
-		yearMonth:beforeMonth,
 		pageSize: '',
 		pageNum: '',
 		name_cnd: '',
@@ -48,13 +42,17 @@ class ProductList extends Component{
 			{
         title: '序号',
         dataIndex: 'index',
-				align: 'center',
+        align: 'center',
+        width: 60,
+        fixed: 'left',
 				render:(text,record,index)=>`${index+1}`
       },
       {
         title: '商品名称',
         dataIndex: 'name',
         key: 'name',
+        width: 110,
+        fixed: 'left',
         align: 'center',
       },
       {
@@ -67,7 +65,7 @@ class ProductList extends Component{
         title: '链接',
         dataIndex: 'link',
         key: 'link',
-        width: 200,
+        width: 300,
         align: 'center',
       },
       {
@@ -80,6 +78,7 @@ class ProductList extends Component{
         title: '是否首页热门',
         dataIndex: 'is_hot',
         key: 'is_hot',
+        width: 150,
         align: 'center',
         render:(is_hot)=>{
           if(is_hot === "0"){
@@ -95,6 +94,7 @@ class ProductList extends Component{
       	title: '热门排序',
         dataIndex: 'hot_sort',
         key: 'hot_sort',
+        width: 120,
         align: 'center',
 			},
 			{
@@ -102,6 +102,7 @@ class ProductList extends Component{
         dataIndex: 'create_time',
         key: 'create_time',
         align: 'center',
+        width:200,
         render: val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>,
         // render:(value,Object)=>{
         //   return DateAPI.format(value,'yyyy-MM-dd hh:mm:ss')
@@ -111,7 +112,7 @@ class ProductList extends Component{
       	title: '状态',
         dataIndex: 'status',
         key: 'status',
-				align: 'center',
+        align: 'center',
 				render:(status)=>{
           if(status === "0"){
             return '下架'
@@ -142,12 +143,14 @@ class ProductList extends Component{
     	{
         title: '操作',
         dataIndex: 'operate',
-        width:90,
+        fixed: 'right',
         align: 'center',
         render: (text,data) => {
           return (
             <span>
-              <Button type="primary" icon="profile" />
+              <Button type="primary">查看</Button>
+              <Button type="primary" style={{marginLeft: 10}}>修改</Button>
+              <Button type="primary" style={{marginLeft: 10}}>删除</Button>
             </span>
           )
         }
@@ -293,12 +296,13 @@ class ProductList extends Component{
           <div className="searchOne">
             <Search
               placeholder="请输入商品名称"
+              allowClear
               onChange={this.handleName}
               style={{ width: 200 }}
             />
           </div>
           <div className="search">
-            <RangePicker renderExtraFooter={() => 'extra footer'} showTime onChange={this.changeTime}/>
+            <RangePicker allowClear renderExtraFooter={() => 'extra footer'} showTime onChange={this.changeTime}/>
           </div>
           <div className="search">
             <Select defaultValue="请选择分类" style={{ width: 160 }} onChange={this.handleClassify}>
@@ -336,10 +340,12 @@ class ProductList extends Component{
           </div>
           <div className="search">
             <Button type="primary" onClick={this.handleSearch}>查询</Button>
+            <Button type="primary" onClick={this.handleSearch} style={{marginLeft: 10}}>新增</Button>
           </div>
         </Row>
           <Table
             rowKey='id'
+            scroll={{ x: 1500, y: 1200 }}
             style={{marginTop: 20}}
             dataSource={list}
             columns={this.columns}

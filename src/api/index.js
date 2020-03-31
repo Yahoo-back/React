@@ -18,6 +18,12 @@ export const productList = param => get('/product/qryProductList?' +'pageSize='+
 //商品分类
 export const classify = param => get('/product/qryProductClassifyAll', param);
 
+//商品访问列表
+export const productVisit = param => get('/productVisitManage/qryProductVisitManageList?' +'pageSize='+param.pageSize+'&pageNum='+param.pageNum+'&name_cnd='+param.name_cnd+'&create_time_FROM_cnd='+param.create_time_FROM_cnd+'&create_time_TO_cnd='+param.create_time_TO_cnd, param);
+
+//商品访问分类
+export const qryVisitProductListAll = param => get('/productVisitManage/qryVisitProductListAll', param);
+
 // OSS上传签名获取
 export const uploadPassCode = param => post('bag/oss/account', param);
 
